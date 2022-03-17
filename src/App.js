@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <District name={'Narsingdi'} spesality={'vibagChai'}></District>
+      <District name={'Dhaka'} spesality={'prochor Luksonkha'}></District>
+      <District name={'Bramonbariya'} spesality={'Maramari'}></District>
+
+    </div >
   );
 }
+const districtStyle = {
+  backgroundColor: 'red',
+  border: '2px solid green',
+  margin: '20px',
 
+}
+function District(props) {
+
+  return (
+    <div style={districtStyle}>
+      <h1>Name: {props.name} </h1>
+      <p>Spesality: {props.spesality} </p>
+    </div>
+
+  )
+}
 export default App;
