@@ -32,7 +32,24 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.comments {
+  background-color: goldenrod;
+  border: 3px solid lawngreen;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 10px;
+
+}
+
+.parent-div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3px;
 }

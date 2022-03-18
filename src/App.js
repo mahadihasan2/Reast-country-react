@@ -8,6 +8,7 @@ function App() {
       <District name={'Dhaka'} spesality={'prochor Luksonkha'}></District>
       <District name={'Bramonbariya'} spesality={'Maramari'}></District>
       <LoadPost></LoadPost>
+      <LoadComments></LoadComments>
 
     </div >
   );
@@ -58,6 +59,34 @@ function Post(props) {
     <div style={{ backgroundColor: 'lightSalmon', margin: '20px', border: '2px solid gray', padding: '20px' }}>
       <h1 style={{ color: 'black' }}>Title: {props.title}</h1>
       <p style={{ color: 'green', fontSize: '20px' }}>Body : {props.body}</p>
+    </div>
+  )
+}
+
+
+function LoadComments() {
+  const [comments, setComments] = useState([])
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/comments')
+      .then(res => res.json())
+      .then(data => setComments(data))
+  }, [])
+  return (
+    <div className='parent-div'>
+      <h1>Comment : {comments.length}</h1>
+      {
+        comments.map(comment => <Comment name={comment.name} email={comment.email} body={comment.body}></Comment>)
+      }
+    </div>
+  )
+}
+
+function Comment(props) {
+  return (
+    <div className='comments'>
+      <h1>Name : {props.name}</h1>
+      <h2>Email: {props.email}</h2>
+      <h3>Body: {props.body}</h3>
     </div>
   )
 }
